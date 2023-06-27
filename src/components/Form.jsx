@@ -3,13 +3,11 @@ import { useForm } from 'react-hook-form';
 import Arrow from '../images/icon-arrow.svg';
 import ErrorIcon from '../images/icon-error.svg'
 
-// place button in absolute
-// use % to move around
-
 function Form() {
 
     const [input, setInput] = useState('');
     const [newError, setNewError] = useState('')
+    
     
     const emailRegex = /\w+@\w+\.\w{2,3}/;
 
@@ -17,7 +15,7 @@ function Form() {
         return emailRegex.test(emailAddress)
     }
 
-    const { register, handleSubmit, formState: {errors} } = useForm({defaultValues: {
+    const { register, resetField, handleSubmit, formState: {errors} } = useForm({defaultValues: {
         email: ''
     }})
 
@@ -48,30 +46,42 @@ function Form() {
     },[])
 
     const onSubmit = (data) => {
+        
         const errorDiv = document.getElementById('errorContainer').firstChild;
         const formContainer = document.getElementById('formContainer');
         const clearText = document.getElementById('email');
         const warningContainer = document.getElementById('warningContainer');
 
-        errorDiv.innerHTML = '';
-        setNewError(errorDiv.innerHTML);
-        clearText.value = ''
-        warningContainer.style.display = 'none'
-        formContainer.style.borderWidth = '1px'
-        formContainer.style.borderColor = 'rgba(206, 152, 152, 0.5)'
-        
+        if(data.email === '') {
+            console.log('empty')
+            console.log(errorDiv)
+            console.log(warningContainer)
+            warningContainer.style.display = 'block';
+            formContainer.style.borderWidth = '2px';
+            formContainer.style.borderRightWidth = '0px'
+            formContainer.style.borderColor = '#F96464';
+            errorDiv.innerHTML = 'An email is required'
+        } else {
+            errorDiv.innerHTML = '';
+            setNewError(errorDiv.innerHTML);
+            clearText.value = ''
+            warningContainer.style.display = 'none'
+            formContainer.style.borderWidth = '1px'
+            formContainer.style.borderColor = 'rgba(206, 152, 152, 0.5)'
+            resetField('email')
+            console.log(data.email)
+        }
     }
+
   return (
     <>
-        <div id="formContainer" className='flex items-center justify-between border border-solid border-darkPink/[.50] rounded-[28px] bg-transparent'>
+        <div id="formContainer" className='h-[48px] flex items-center justify-between border border-solid border-darkPink/[.50] rounded-[28px] bg-transparent'>
             <form onSubmit={handleSubmit(onSubmit)} className='flex w-full justify-between items-center'>
                 <div id="inputContainer" className='font-["Josefin_Sans"] text-sm leading-[28px]'>
                     <input 
                         type="email" 
                         id='email'
-                        {...register('email', {
-                            required: 'An email is required'
-                        })}
+                        {...register('email')}
                         title='Please match the format'
                         placeholder='Email Address'
                         className=' placeholder:text-darkPink placeholder:opacity-50 bg-transparent pl-6 pt-[11px] pb-[9px] w-[210px]'
