@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App h-screen">
      <div id='contentWrapper' className='pt-8 pb-[92px] bg-gradient-150 h-full'>
-      <div id='headerWrapper' className='px-8'>
+      <div id='headerWrapper' className='px-8 pb-8 flex'>
         <Header />
       </div>
       <div id='imageWrapper'>
