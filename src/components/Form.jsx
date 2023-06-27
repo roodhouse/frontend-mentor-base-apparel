@@ -75,22 +75,22 @@ function Form() {
 
   return (
     <>
-        <div id="formContainer" className='h-[48px] flex items-center justify-between border border-solid border-darkPink/[.50] rounded-[28px] bg-transparent'>
+        <div id="formContainer" className='h-[48px] flex items-center justify-between border border-solid border-darkPink/[.50] rounded-[28px] bg-transparent xl:w-[444px] xl:h-[55px]'>
             <form onSubmit={handleSubmit(onSubmit)} className='flex w-full justify-between items-center'>
-                <div id="inputContainer" className='font-["Josefin_Sans"] text-sm leading-[28px]'>
+                <div id="inputContainer" className='font-["Josefin_Sans"] text-sm xl:text-base leading-[28px]'>
                     <input 
                         type="email" 
                         id='email'
                         {...register('email')}
                         title='Please match the format'
                         placeholder='Email Address'
-                        className=' placeholder:text-darkPink placeholder:opacity-50 bg-transparent pl-6 pt-[11px] pb-[9px] w-[210px]'
+                        className=' placeholder:text-darkPink placeholder:opacity-50 bg-transparent pl-6 pt-[11px] pb-[9px] w-[210px] xl:w-[300px]'
                     />
                 </div>
                 <div id="warningContainer" className='w-[24px] h-[24px] hidden'>
                     <img src={ErrorIcon} alt="Error" />
                 </div>
-                <div id="arrowWrapper" className='flex w-[64px] h-[48px]'>
+                <div id="arrowWrapper" className='flex w-[64px] h-[48px] xl:w-[100px] xl:h-[56px] cursor-pointer'>
                     <div id="arrowContainer" className='w-full h-full flex items-center justify-center bg-gradient-135 rounded-[28px]'>
                        <button type='submit' className='w-full h-full flex items-center justify-center'>
                             <img src={Arrow} alt="Arrow" />
@@ -99,7 +99,7 @@ function Form() {
             </div>
             </form>
         </div>
-        <div id='errorContainer' className='text-hotPink text-[13px] font-["Josefin_Sans"] pl-6 pt-2'>
+        <div id='errorContainer' className='text-hotPink text-[13px] font-["Josefin_Sans"] pl-6 pt-2 xl:pt-1 xl:leading-[28px]'>
             <p>{errors.email?.message}</p>
         </div>
     </>
