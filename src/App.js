@@ -17,7 +17,7 @@ function App() {
       <div id='copyWrapper' className='px-8 pb-8'>
         <Copy />
       </div>
-      <div id='formWrapper' className='px-8'>
+      <div id='formWrapper' className='px-8 w-full'>
         <Form />
       </div>
      </div>
