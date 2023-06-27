@@ -15,7 +15,7 @@ function App() {
       <div id='imageWrapper' className='pb-[64px] xl:hidden'>
         <Image />
       </div>
-      <div id='copyWrapper' className='px-8 pb-8 xl:w-[50%] xl:px-0 xl:pl-[165px]'>
+      <div id='copyWrapper' className='px-8 pb-8 xl:w-[50%] xl:px-0 xl:pl-[165px] xl:pb-10'>
         <Copy />
       </div>
       <div id='formWrapper' className='px-8 w-full xl:w-[50%] xl:px-0 xl:pl-[165px]'>
