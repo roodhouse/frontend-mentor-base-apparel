@@ -11,7 +11,7 @@ function App() {
       <div id='headerWrapper' className='px-8 pb-8 flex'>
         <Header />
       </div>
-      <div id='imageWrapper'>
+      <div id='imageWrapper' className='pb-[64px]'>
         <Image />
       </div>
       <div id='copyWrapper' className='px-8'>

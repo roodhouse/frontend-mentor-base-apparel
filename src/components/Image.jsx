@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+import HeroMobile from '../images/hero-mobile.jpg'
 
 function Image() {
   return (
-    <div>Image</div>
+    <>
+        <div id="imgContainer">
+            <img src={HeroMobile} alt="Hero" />
+        </div>
+    </>
   )
 }
 
