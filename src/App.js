@@ -3,22 +3,26 @@ import Header from './components/Header';
 import Image from './components/Image';
 import Copy from './components/Copy';
 import Form from './components/Form';
+import DesktopImage from './components/DesktopImage';
 
 function App() {
   return (
-    <div className="App h-screen">
-     <div id='contentWrapper' className='pt-8 pb-[92px] bg-gradient-150 h-full'>
-      <div id='headerWrapper' className='px-8 pb-8 flex'>
+    <div className="App h-screen bg-gradient-150 flex justify-center items-center xl:justify-evenly xl:items-center">
+     <div id='contentWrapper' className='pt-8 pb-[92px] h-full max-w-[375px] xl:pt-0 xl:h-[800px] xl:flex xl:w-full xl:max-w-[100%] xl:flex-col xl:flex-wrap xl:pb-0'>
+      <div id='headerWrapper' className='px-8 pb-8 flex xl:w-[50%] xl:px-0 xl:pl-[165px] xl:pb-[137px]'>
         <Header />
       </div>
-      <div id='imageWrapper' className='pb-[64px]'>
+      <div id='imageWrapper' className='pb-[64px] xl:hidden'>
         <Image />
       </div>
-      <div id='copyWrapper' className='px-8 pb-8'>
+      <div id='copyWrapper' className='px-8 pb-8 xl:w-[50%] xl:px-0 xl:pl-[165px]'>
         <Copy />
       </div>
-      <div id='formWrapper' className='px-8 w-full'>
+      <div id='formWrapper' className='px-8 w-full xl:w-[50%] xl:px-0 xl:pl-[165px]'>
         <Form />
+      </div>
+      <div id='desktopImageWrapper' className='hidden xl:block xl:w-[50%]'>
+        <DesktopImage />
       </div>
      </div>
     </div>
