@@ -79,6 +79,27 @@ theme: {
 ```
 ![](/src/images/linearGradient.png)
 
+Using the rgba color model you are able to change the opacity with the last value. This project called for the opacity of the border color to be 50%. I was able to set it to that value on initial load with Tailwind using this code:
+
+```js
+<div id="formContainer" className='flex items-center justify-between border border-solid border-darkPink/[.50] rounded-[28px] bg-transparent'>
+```
+
+If the data as incorrectly entered then a new border color is shown. From here if a vaild email is then submitted I needed to revert all changes back to the original state. I used this code to get the opacity back to 50%: 
+
+```js
+        const formContainer = document.getElementById('formContainer');
+        const clearText = document.getElementById('email');
+        const warningContainer = document.getElementById('warningContainer');
+
+        errorDiv.innerHTML = '';
+        setNewError(errorDiv.innerHTML);
+        clearText.value = ''
+        warningContainer.style.display = 'none'
+        formContainer.style.borderWidth = '1px'
+        formContainer.style.borderColor = 'rgba(206, 152, 152, 0.5)'
+```
+
 ### Useful resources
 
 - [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
